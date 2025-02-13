@@ -8,15 +8,12 @@ workflows:
       - path-filtering/filter:
           base-revision: main
           config-path: .circleci/go.yml
-          mapping: |
-            go/*
+          mapping: go/*
       - path-filtering/filter:
           base-revision: main
           config-path: .circleci/ruby.yml
-          mapping: |
-            ruby/*
+          mapping: ruby/*
       - path-filtering/filter:
           base-revision: main
           config-path: .circleci/ruby.yml
-          mapping: |
-            scala/*
+          mapping: scala/*
