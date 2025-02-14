@@ -3,13 +3,18 @@
 
 version: 2.1
 
+parameters:
+  lang:
+    type: string
+    default: "unset"
+
 jobs:
   go-build:
     docker:
       - image: alpine
     steps:
       - common-say-hello:
-          from: go-build
+          from: << pipeline.parameters.lang >>-build
 
 workflows:
   go-workflow:

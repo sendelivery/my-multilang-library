@@ -1,7 +1,12 @@
-# Config dedicated for the ruby library
+# Config dedicated for the go library
 # All the resources must be prefixed with `ruby-` to avoid conflicts
 
 version: 2.1
+
+parameters:
+  lang:
+    type: string
+    default: "unset"
 
 jobs:
   ruby-build:
@@ -9,7 +14,7 @@ jobs:
       - image: alpine
     steps:
       - common-say-hello:
-          from: ruby-build
+          from: << pipeline.parameters.lang >>-build
 
 workflows:
   ruby-workflow:
