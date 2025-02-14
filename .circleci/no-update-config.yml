@@ -1,0 +1,26 @@
+version: 2.1
+
+# global_dockerhub_auth: &global_dockerhub_auth
+#   auth:
+#     username: $GLOBAL_DOCKERHUB_USERNAME
+#     password: $GLOBAL_DOCKERHUB_PASSWORD
+
+# executors:
+#   roo-container:
+#     docker:
+#       - image: deliveroo/circleci:4.0
+#         <<: *global_dockerhub_auth
+
+jobs:
+  successful_build:
+    # executor: roo-container
+    steps:
+      - run:
+          name: NO_OP
+          command: |
+            echo "You're all set!"
+
+workflows:
+  no_update:
+    jobs:
+      - successful_build

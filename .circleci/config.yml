@@ -2,9 +2,30 @@ version: "2.1"
 setup: true
 orbs:
   path-filtering: circleci/path-filtering@0.1.7
+
+# Custom commands aimed for the main workflow and the language-specific workflows
+commands:
+  common-say-hello:
+    parameters:
+      from:
+        description: Where you are calling from
+        type: string
+        default: main config
+    steps:
+      - run: echo 'Greetings from the << parameters.from >>!'
+      - run: echo 'The value of `lang` is "<< pipeline.parameters.lang >>"'
+
+jobs:
+  common-pre:
+    # docker:
+    # - image: alpine
+    steps:
+      - run: echo 'This is a common step for all workflows'
+
 workflows:
   generate-config:
     jobs:
+      - common-pre
       - path-filtering/filter:
           base-revision: main
           mapping: |

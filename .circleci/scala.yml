@@ -1,27 +1,20 @@
-# Config dedicated for module C
-# All the resources must be prefixed with `scala` to avoid conflicts
+# Config dedicated for the scala library
+# All the resources must be prefixed with `scala-` to avoid conflicts
 
 version: 2.1
 
-orbs:
-  scala-hello-build: circleci/hello-build@0.0.14
-
 jobs:
   scala-build:
-    docker:
-      - image: alpine
+    # docker:
+    #   - image: alpine
     steps:
       - common-say-hello:
-          to: C
-      - run: echo 'Hello world from module C! :3'
+          from: scala-build
 
 workflows:
   scala-workflow:
     jobs:
       - common-pre
       - scala-build:
-          requires:
-            - common-pre
-      - scala-hello-build/hello-build:
           requires:
             - common-pre

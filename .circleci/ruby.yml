@@ -1,50 +1,20 @@
-# Config dedicated for module B
+# Config dedicated for the ruby library
 # All the resources must be prefixed with `ruby-` to avoid conflicts
 
 version: 2.1
 
-orbs:
-  # Note: We are using an older version of hello-build, whereas module A uses the latest
-  ruby-hello-build: circleci/hello-build@0.0.13
-
 jobs:
   ruby-build:
-    docker:
-      - image: alpine
+    # docker:
+    #   - image: alpine
     steps:
       - common-say-hello:
-          to: B
-      - run: echo 'Hello, from the Ruby library! :3'
-
-  ruby-postrun:
-    docker:
-      - image: alpine
-    steps:
-      - run: echo 'Another job for our Ruby library! :3'
+          from: ruby-build
 
 workflows:
-  ruby-workflow-x:
+  ruby-workflow:
     jobs:
       - common-pre
       - ruby-build:
           requires:
             - common-pre
-      - ruby-postrun:
-          requires:
-            - ruby-build
-  ruby-workflow-y:
-    jobs:
-      - ruby-hello-build/hello-build
-# version: 2.1
-# jobs:
-#   build:
-#     docker:
-#       - image: ruby:3.2.5
-#     steps:
-#       - checkout
-#       - run:
-#           name: Run the default task
-#           command: |
-#             gem install bundler -v 2.4.19
-#             bundle install
-#             bundle exec rake
