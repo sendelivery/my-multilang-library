@@ -11,6 +11,7 @@ RSpec.describe RooMarkets do
     expect(RooMarkets.valid_market?("gb")).to eq(true)
     expect(RooMarkets.valid_market?("fr")).to eq(true)
     expect(RooMarkets.valid_market?("ie")).to eq(true)
+    expect(RooMarkets.valid_market?("hk")).to eq(true)
   end
 
   it "is_valid_market returns false when given an invalid market" do

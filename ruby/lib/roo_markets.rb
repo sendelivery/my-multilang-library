@@ -4,7 +4,7 @@
 module RooMarkets
   VERSION = "0.1.0"
 
-  VALID_MARKETS = %w[gb fr ie].freeze
+  VALID_MARKETS = %w[gb fr ie hk].freeze
 
   def self.valid_market?(market)
     VALID_MARKETS.include? market
