@@ -3,7 +3,7 @@ package markets_test
 import (
 	"testing"
 
-	markets "github.com/sendelivery/my-multilang-library/go"
+	"github.com/sendelivery/my-multilang-library/go/markets"
 )
 
 func Test_IsMarketValid(t *testing.T) {

@@ -1,23 +1,23 @@
-version: "2.1"
-setup: true
-orbs:
-  path-filtering: circleci/path-filtering@1.2.0
+# version: "2.1"
+# setup: true
+# orbs:
+#   path-filtering: circleci/path-filtering@1.2.0
 
-jobs:
-  common-pre:
-    docker:
-      - image: alpine
-    steps:
-      - run: echo 'This is a common step for all workflows'
+# jobs:
+#   common-pre:
+#     docker:
+#       - image: alpine
+#     steps:
+#       - run: echo 'This is a common step for all workflows'
 
-workflows:
-  generate-config:
-    jobs:
-      - common-pre
-      - path-filtering/filter:
-          base-revision: main
-          config-path: .circleci/no-update-config.yml
-          mapping: |
-            go/.* lang "go" .circleci/go-config.yml
-            ruby/.* lang "ruby" .circleci/ruby-config.yml
-            scala/.* lang "scala" .circleci/scala-config.yml
+# workflows:
+#   generate-config:
+#     jobs:
+#       - common-pre
+#       - path-filtering/filter:
+#           base-revision: main
+#           config-path: .circleci/no-update-config.yml
+#           mapping: |
+#             go/.* lang "go" .circleci/go-config.yml
+#             ruby/.* lang "ruby" .circleci/ruby-config.yml
+#             scala/.* lang "scala" .circleci/scala-config.yml
