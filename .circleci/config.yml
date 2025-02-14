@@ -30,6 +30,6 @@ workflows:
           base-revision: main
           config-path: .circleci/no-update-config.yml
           mapping: |
-            go/* lang "go" .circleci/go.yml
-            ruby/* lang "ruby" .circleci/ruby.yml
-            scala/* lang "scala" .circleci/scala.yml
+            go/.* lang "go" .circleci/go.yml
+            ruby/.* lang "ruby" .circleci/ruby.yml
+            scala/.* lang "scala" .circleci/scala.yml
