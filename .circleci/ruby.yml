@@ -5,8 +5,8 @@ version: 2.1
 
 jobs:
   ruby-build:
-    # docker:
-    #   - image: alpine
+    docker:
+      - image: alpine
     steps:
       - common-say-hello:
           from: ruby-build

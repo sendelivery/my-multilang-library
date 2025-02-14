@@ -1,7 +1,7 @@
 version: "2.1"
 setup: true
 orbs:
-  path-filtering: circleci/path-filtering@0.1.7
+  path-filtering: circleci/path-filtering@1.2.0
 
 # Custom commands aimed for the main workflow and the language-specific workflows
 commands:
@@ -17,8 +17,8 @@ commands:
 
 jobs:
   common-pre:
-    # docker:
-    # - image: alpine
+    docker:
+      - image: alpine
     steps:
       - run: echo 'This is a common step for all workflows'
 

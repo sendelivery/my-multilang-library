@@ -5,8 +5,8 @@ version: 2.1
 
 jobs:
   go-build:
-    # docker:
-    #   - image: alpine
+    docker:
+      - image: alpine
     steps:
       - common-say-hello:
           from: go-build

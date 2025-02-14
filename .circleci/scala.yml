@@ -5,8 +5,8 @@ version: 2.1
 
 jobs:
   scala-build:
-    # docker:
-    #   - image: alpine
+    docker:
+      - image: alpine
     steps:
       - common-say-hello:
           from: scala-build
