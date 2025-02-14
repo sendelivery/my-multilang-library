@@ -13,7 +13,6 @@ commands:
         default: main config
     steps:
       - run: echo 'Greetings from the << parameters.from >>!'
-      - run: echo 'The value of `lang` is "<< pipeline.parameters.lang >>"'
 
 jobs:
   common-pre:
