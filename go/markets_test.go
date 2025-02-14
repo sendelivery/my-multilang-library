@@ -17,6 +17,7 @@ func Test_IsMarketValid(t *testing.T) {
 		{"us", false},
 		{"de", false},
 		{"hk", false},
+		{"blah", false},
 	}
 
 	for _, d := range data {
