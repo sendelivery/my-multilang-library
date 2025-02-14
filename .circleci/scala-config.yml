@@ -1,4 +1,4 @@
-# Config dedicated for the go library
+# Config dedicated for the scala library
 # All the resources must be prefixed with `scala-` to avoid conflicts
 
 version: 2.1
@@ -13,13 +13,9 @@ jobs:
     docker:
       - image: alpine
     steps:
-      - common-say-hello:
-          from: << pipeline.parameters.lang >>-build
+      - run: echo 'Hello from the << pipeline.parameters.lang >>-build job'
 
 workflows:
   scala-workflow:
     jobs:
-      - common-pre
-      - scala-build:
-          requires:
-            - common-pre
+      - scala-build

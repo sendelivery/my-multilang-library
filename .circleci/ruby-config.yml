@@ -1,4 +1,4 @@
-# Config dedicated for the go library
+# Config dedicated for the ruby library
 # All the resources must be prefixed with `ruby-` to avoid conflicts
 
 version: 2.1
@@ -13,13 +13,9 @@ jobs:
     docker:
       - image: alpine
     steps:
-      - common-say-hello:
-          from: << pipeline.parameters.lang >>-build
+      - run: echo 'Hello from the << pipeline.parameters.lang >>-build job'
 
 workflows:
   ruby-workflow:
     jobs:
-      - common-pre
-      - ruby-build:
-          requires:
-            - common-pre
+      - ruby-build

@@ -13,13 +13,9 @@ jobs:
     docker:
       - image: alpine
     steps:
-      - common-say-hello:
-          from: << pipeline.parameters.lang >>-build
+      - run: echo 'Hello from the << pipeline.parameters.lang >>-build job'
 
 workflows:
   go-workflow:
     jobs:
-      - common-pre
-      - go-build:
-          requires:
-            - common-pre
+      - go-build

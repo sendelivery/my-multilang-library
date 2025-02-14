@@ -3,17 +3,6 @@ setup: true
 orbs:
   path-filtering: circleci/path-filtering@1.2.0
 
-# Custom commands aimed for the main workflow and the language-specific workflows
-commands:
-  common-say-hello:
-    parameters:
-      from:
-        description: Where you are calling from
-        type: string
-        default: main config
-    steps:
-      - run: echo 'Greetings from the << parameters.from >>!'
-
 jobs:
   common-pre:
     docker:
@@ -29,6 +18,6 @@ workflows:
           base-revision: main
           config-path: .circleci/no-update-config.yml
           mapping: |
-            go/.* lang "go" .circleci/go.yml
-            ruby/.* lang "ruby" .circleci/ruby.yml
-            scala/.* lang "scala" .circleci/scala.yml
+            go/.* lang "go" .circleci/go-config.yml
+            ruby/.* lang "ruby" .circleci/ruby-config.yml
+            scala/.* lang "scala" .circleci/scala-config.yml
